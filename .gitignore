@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+gen-lang-client-0303069580-be69a6e9c54c.json
+geminitest.py
+log.txt
