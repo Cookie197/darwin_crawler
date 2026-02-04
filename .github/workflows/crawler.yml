@@ -1,0 +1,38 @@
+name: Run crawler
+
+on:
+  workflow_dispatch:        # manual trigger
+  schedule:
+    - cron: "0 6 * * *"     # runs daily at 14:00 UTC+8
+
+jobs:
+  run-crawler:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install Playwright browsers
+        run: |
+          playwright install --with-deps
+
+      - name: Run crawler
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
+          SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
+          GEMINI_MODEL: ${{ secrets.GEMINI_MODEL }}   
+        run: |
+          python auto_fetch.py
+
