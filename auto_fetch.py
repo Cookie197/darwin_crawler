@@ -14,6 +14,10 @@ credentials = Credentials.from_service_account_info(
     config.google_credentials_json, scopes=config.SCOPES
 )
 
+print("Using service account:", credentials.service_account_email)
+print("Spreadsheet ID:", config.SPREADSHEET_ID)
+
+
 gc = gspread.authorize(credentials)
 sheet = gc.open_by_key(config.SPREADSHEET_ID).worksheet(SHEET_A)
 history_sheet = gc.open_by_key(config.SPREADSHEET_ID).worksheet(SHEET_B)
