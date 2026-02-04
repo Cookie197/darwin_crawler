@@ -126,3 +126,23 @@ multiple sheets. each company has a unique id
 0 0 * * * /usr/bin/python3 /Users/easonchiou/STUFF/__darwin/auto_fetch.py
 ```
 
+
+```
+beautifulsoup4==4.12.3
+google-auth==2.41.1
+google-auth-oauthlib==1.2.3
+google-genai==1.56.0
+gspread==6.2.1
+matplotlib==3.9.2
+playwright==1.57.0
+requests==2.31.0
+requests-file==2.1.0
+requests-oauthlib==2.0.0
+schedule==1.2.2
+Scrapy==2.11.2
+selenium==4.22.0
+webdriver-manager==4.0.1
+websocket-client==1.8.0
+websockets==15.0.1
+python-dotenv
+```
