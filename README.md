@@ -1,6 +1,5 @@
 ## environment
 
-* Need API key (in macOS, can also set environment variable in ./zshrc: export GEMINI_API_KEY=<YOUR_API_KEY_HERE>)
 * Google cloud project
 * Enable Google Sheets API
     * APIs & Services → Library
@@ -10,7 +9,7 @@
     * Create JSON key → download it
 * Create Google sheets manually, share it with the Service Account (edit access)
 
-* Currently, the project is using my personal google cloud account. For migration, create a new google cloud project and do the above operations. Update the ``GOOGLE_CREDENTIALS_JSON`` tab in github secrets. Same for Gemini API and google sheet ID.
+* **Currently, the project is using my personal google cloud account and Gemini API. For migration, create a new google cloud project and do the above operations. Update the ``GOOGLE_CREDENTIALS_JSON`` tab in github secrets. Same for Gemini API and google sheet ID.**
 
 ## config.py
 Contains shared (environment) variables. UPD: also loads secret variables from ``.env`` by using ``load_dotenv()`` and ``os.environ.get()``.
@@ -48,7 +47,7 @@ Given homepage url, it fetches homepage html (static or dynamic) -> extracts tex
 
 ``upload_to_google_sheets(rows)``: write the rows to the particular sheet, *rows* is a list of parsed dicts each containing the data of a startup
 
-## auto_fetch.py  (current main fcn is here)
+## auto_fetch.py  (current main function is here)
 
 > gspread, google.oauth2
 
