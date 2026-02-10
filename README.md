@@ -10,10 +10,7 @@
     * Create JSON key → download it
 * Create Google sheets manually, share it with the Service Account (edit access)
 
-```
-pip3 install -q -U google-genai
-pip3 install gspread google-auth
-```
+* Currently, the project is using my personal google cloud account. For migration, create a new google cloud project and do the above operations. Update the ``GOOGLE_CREDENTIALS_JSON`` tab in github secrets. Same for Gemini API and google sheet ID.
 
 ## config.py
 Contains shared (environment) variables. UPD: also loads secret variables from ``.env`` by using ``load_dotenv()`` and ``os.environ.get()``.
@@ -21,7 +18,7 @@ Contains shared (environment) variables. UPD: also loads secret variables from `
 Call ``import config``. Then the variables can be used by calling ``config.[VARIABLE]``.
 
 
-## testcrawl.py
+## testcrawl.py (not in use)
 Fetches rows from https://startup-db.com/companies and turns them into csv or uploads to google sheets (imports from ``upload_to_google_sheets.py``).
 Then, follow the link company_url (ex. https://startup-db.com/companies/0QVwG3zU48mJ6Eye) to get homapage_url (ex. https://tohakusha.com/), and generate a summary using ``startup_summary.py``. Appends it to the sheets as a separate column.
 
@@ -89,7 +86,7 @@ The above will also be set in github repo secrets, with the same names.
 
 ## cron (if you want local run)
 
-``55 15 * * * /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 /Users/easonchiou/STUFF/code/__darwin/auto_fetch.py 2>/Users/easonchiou/STUFF/code/__darwin/log.txt``
+``0 15 * * * /Library/Frameworks/Python.framework/Versions/3.11/bin/python3 /Users/easonchiou/STUFF/code/__darwin/auto_fetch.py 2>/Users/easonchiou/STUFF/code/__darwin/log.txt``
 
 ## github actions
 
